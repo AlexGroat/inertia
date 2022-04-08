@@ -21,11 +21,8 @@
     @inertiaHead
 </head>
 
-<body class="font-sans antialiased">
-    <section class="p-8">
-        @inertia
-    </section>
-
+<body>
+    @inertia
     @env ('local')
     <script src="http://localhost:8080/js/bundle.js"></script>
     @endenv
