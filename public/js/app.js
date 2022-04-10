@@ -280,10 +280,10 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName("ti
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__("./resources/js/Pages lazy recursive ^\\.\\/.*\\.vue$")("./".concat(name, ".vue"))["default"];
+              return __webpack_require__("./resources/js/Pages lazy recursive ^\\.\\/.*\\.vue$")("./".concat(name, ".vue"));
 
             case 2:
-              page = _context.sent;
+              page = _context.sent["default"];
               // if page has no layout, set default
               (_page$layout = page.layout) !== null && _page$layout !== void 0 ? _page$layout : page.layout = _Pages_Shared_Layout__WEBPACK_IMPORTED_MODULE_4__["default"];
               return _context.abrupt("return", page);
