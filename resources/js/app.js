@@ -10,8 +10,8 @@ const appName =
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => {
-        let page = require(`./Pages/${name}.vue`).default;
+    resolve: async (name) => {
+        let page = await import(`./Pages/${name}.vue`).default;
     
         // if page has no layout, set default
         page.layout ??= Layout;
