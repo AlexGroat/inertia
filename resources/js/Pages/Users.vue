@@ -7,11 +7,7 @@
 </template>
 
 <script>
-import Layout from "./Shared/Layout.vue";
-
 export default {
-  layout: Layout,
-
-  props: { time: String }
+  props: { time: String },
 };
 </script>
