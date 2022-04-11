@@ -1,4 +1,5 @@
 <template>
+<Head title="Users" />
   <h1 class="text-3xl">Users</h1>
   <div style="margin-top: 400px">
     <p>The current time is {{ time }}.</p>
@@ -6,8 +7,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: { time: String },
-};
+<script setup>
+import { Head } from "@inertiajs/inertia-vue3";
+
+  defineProps({ time: String });
+
 </script>

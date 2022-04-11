@@ -5,14 +5,10 @@ import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import Layout from "./Pages/Shared/Layout";
 
-const appName =
-    window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
-
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
     resolve: async (name) => {
         let page = (await import(`./Pages/${name}.vue`)).default;
-    
+
         // if page has no layout, set default
         page.layout ??= Layout;
 
@@ -25,6 +21,8 @@ createInertiaApp({
             .mixin({ methods: { route } })
             .mount(el);
     },
+
+    title: title => "My App: " + title
 });
 
 InertiaProgress.init({
