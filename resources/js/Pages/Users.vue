@@ -1,6 +1,15 @@
 <template>
   <Head title="Users" />
-  <h1 class="text-3xl">Users</h1>
+  <div class="flex justify-between mb-6">
+    <h1 class="text-3xl">Users</h1>
+
+    <input
+      v-model="search"
+      type="text"
+      placeholder="Search Users..."
+      class="border px-2 rounded-lg"
+    />
+  </div>
 
   <div class="flex flex-col mt-4">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -48,8 +57,31 @@
   <Pagination :links="users.links" class="mt-6" />
 </template>
 
-<script setup>
-import Pagination from "../Pages/Shared/Pagination.vue";
 
-defineProps({ users: Object });
+<script setup>
+import { ref, watch } from "vue";
+import Pagination from "../Pages/Shared/Pagination.vue";
+import { Inertia } from "@inertiajs/inertia";
+
+let props = defineProps({
+  users: Object,
+  filters: Object,
+});
+
+let search = ref(props.filters.search);
+
+watch(search, (value) => {
+  Inertia.get(
+    "/users",
+    { search: value },
+    {
+      // doesnt get rid of the state if more is typed into the search bar
+      preserveState: true,
+      /* replace redirects the user back to the previous page
+       not delete an input search letter each time the back
+      button is clicked, REPLACE CURRENT REQUEST */
+      replace: true
+    }
+  );
+});
 </script>

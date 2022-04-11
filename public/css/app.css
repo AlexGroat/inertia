@@ -690,6 +690,9 @@ select {
 .mt-1 {
   margin-top: 0.25rem;
 }
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
 .block {
   display: block;
 }
@@ -865,6 +868,9 @@ select {
 }
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .rounded-l-md {
   border-top-left-radius: 0.375rem;

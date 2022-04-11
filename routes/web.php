@@ -23,10 +23,21 @@ Route::get('/', function () {
 Route::get('/users', function () {
     // explicitly return just the users name which is visible to the client
     return Inertia::render('Users', [
-        'users' => User::paginate(10)->through(fn($user) => [
-            'id' => $user->id,
-            'name' => $user->name
-    ])
+        'users' => User::query()
+            ->when(Request::input('search'), function ($query, $search) {
+                // filter search results from query search
+                // % anything can come before of after search
+                // search STRING INTERPOLATION
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(10)
+            // paginate the user results with the query string
+            ->withQueryString()
+            ->through(fn ($user) => [
+                'id' => $user->id,
+                'name' => $user->name
+            ]),
+            'filters' => Request::only(['search'])
     ]);
 });
 
