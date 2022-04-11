@@ -42,6 +42,11 @@ Route::get('/users', function () {
 });
 
 
+Route::get('/users/create', function () {
+    return Inertia::render('UsersCreate');
+});
+
+
 Route::get('/settings', function () {
     return Inertia::render('Settings');
 });

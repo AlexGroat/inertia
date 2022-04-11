@@ -80,7 +80,7 @@ watch(search, (value) => {
       /* replace redirects the user back to the previous page
        not delete an input search letter each time the back
       button is clicked, REPLACE CURRENT REQUEST */
-      replace: true
+      replace: true,
     }
   );
 });

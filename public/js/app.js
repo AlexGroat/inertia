@@ -610,6 +610,10 @@ var map = {
 	"./Users.vue": [
 		"./resources/js/Pages/Users.vue",
 		"resources_js_Pages_Users_vue"
+	],
+	"./UsersCreate.vue": [
+		"./resources/js/Pages/UsersCreate.vue",
+		"resources_js_Pages_UsersCreate_vue"
 	]
 };
 function webpackAsyncContext(req) {
