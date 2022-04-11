@@ -603,6 +603,10 @@ var map = {
 	"./Shared/NavLink.vue": [
 		"./resources/js/Pages/Shared/NavLink.vue"
 	],
+	"./Shared/Pagination.vue": [
+		"./resources/js/Pages/Shared/Pagination.vue",
+		"resources_js_Pages_Shared_Pagination_vue"
+	],
 	"./Users.vue": [
 		"./resources/js/Pages/Users.vue",
 		"resources_js_Pages_Users_vue"
