@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -20,8 +21,11 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
+    // explicitly return just the users name which is visible to the client
     return Inertia::render('Users', [
-        'time' => now()->toTimeString()
+        'users' => User::all()->map(fn ($user) => [
+            'name' => $user->name
+        ])
     ]);
 });
 
