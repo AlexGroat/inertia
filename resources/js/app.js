@@ -10,7 +10,9 @@ createInertiaApp({
         let page = (await import(`./Pages/${name}.vue`)).default;
 
         // if page has no layout, set default
-        page.layout ??= Layout;
+        if (page.layout === undefined) {
+            page.layout = Layout;
+        }
 
         return page;
     },
@@ -23,7 +25,7 @@ createInertiaApp({
             .mount(el);
     },
 
-    title: title => "My App: " + title
+    title: (title) => "My App: " + title,
 });
 
 InertiaProgress.init({

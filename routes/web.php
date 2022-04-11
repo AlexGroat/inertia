@@ -12,6 +12,8 @@ to redirect you to a route with a name of login */
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
 
+Route::post('login', [LoginController::class, 'store']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return Inertia::render('Home');
