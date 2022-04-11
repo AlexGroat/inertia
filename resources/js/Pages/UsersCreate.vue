@@ -2,7 +2,7 @@
   <Head title="Create User" />
   <h1 class="text-3xl">Create New User</h1>
 
- <!-- prevent default submit, call submit in script line 77 -->
+  <!-- prevent default submit, call submit in script line 77 -->
   <form @submit.prevent="submit" class="max-w-md mx-auto mt-8">
     <div class="mb-6">
       <label
@@ -19,6 +19,11 @@
         name="name"
         required
       />
+      <div
+        v-if="$page.props.errors.name"
+        v-text="$page.props.errors.name"
+         class="text-red-500 text-sm"
+      ></div>
     </div>
     <div class="mb-6">
       <label
@@ -35,6 +40,11 @@
         name="email"
         required
       />
+      <div
+        v-if="$page.props.errors.email"
+        v-text="$page.props.errors.email"
+         class="text-red-500 text-sm"
+      ></div>
     </div>
     <div class="mb-6">
       <label
@@ -51,6 +61,11 @@
         name="password"
         required
       />
+      <div
+        v-if="$page.props.errors.password"
+        v-text="$page.props.errors.password"
+        class="text-red-500 text-sm"
+      ></div>
     </div>
     <div class="mb-6">
       <button
@@ -75,6 +90,6 @@ let form = reactive({
 
 // sending the post request with the above form data
 let submit = () => {
-  Inertia.post('/users', form);
-}
+  Inertia.post("/users", form);
+};
 </script>
