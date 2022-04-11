@@ -37,13 +37,27 @@ Route::get('/users', function () {
                 'id' => $user->id,
                 'name' => $user->name
             ]),
-            'filters' => Request::only(['search'])
+        'filters' => Request::only(['search'])
     ]);
 });
 
 
 Route::get('/users/create', function () {
     return Inertia::render('UsersCreate');
+});
+
+Route::post('/users', function () {
+    // validate
+    $attributes = Request::validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
+    // persist
+    User::create($attributes);
+    // redirect
+
+    return redirect('/users');
 });
 
 
