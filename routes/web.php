@@ -11,10 +11,13 @@ use Inertia\Inertia;
 to redirect you to a route with a name of login */
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
-
 Route::post('login', [LoginController::class, 'store']);
 
+
+
 Route::middleware('auth')->group(function () {
+    Route::post('logout', [LoginController::class, 'destroy']);
+
     Route::get('/', function () {
         return Inertia::render('Home');
     });
@@ -59,12 +62,7 @@ Route::middleware('auth')->group(function () {
         return redirect('/users');
     });
 
-
     Route::get('/settings', function () {
         return Inertia::render('Settings');
-    });
-
-    Route::post('/logout', function () {
-        dd('logging user out');
     });
 });
