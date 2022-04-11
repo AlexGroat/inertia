@@ -3,7 +3,12 @@
   <div class="flex justify-between mb-6">
     <div class="flex items-center">
       <h1 class="text-3xl">Users</h1>
-      <Link v-if="can.createUser" href="/users/create" class="text-blue-500 text-sm ml-2">New User </Link>
+      <Link
+        v-if="can.createUser"
+        href="/users/create"
+        class="text-blue-500 text-sm ml-2"
+        >New User
+      </Link>
     </div>
 
     <input
@@ -43,6 +48,7 @@
                   "
                 >
                   <Link
+                    v-if="user.can.edit"
                     :href="`/users/${user.id}/edit`"
                     class="text-indigo-600 hover:text-indigo-900"
                   >
@@ -69,7 +75,7 @@ import { Inertia } from "@inertiajs/inertia";
 let props = defineProps({
   users: Object,
   filters: Object,
-  can: Object
+  can: Object,
 });
 
 let search = ref(props.filters.search);

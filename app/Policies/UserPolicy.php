@@ -19,4 +19,9 @@ class UserPolicy
     {
         return $user->email === 'doe@mail.com';
     }
+
+    public function edit(User $user,User $model)
+    {
+        return (bool) mt_rand(0, 1);
+    }
 }

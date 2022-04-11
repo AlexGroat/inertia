@@ -37,8 +37,12 @@ Route::middleware('auth')->group(function () {
                 ->withQueryString()
                 ->through(fn ($user) => [
                     'id' => $user->id,
-                    'name' => $user->name
+                    'name' => $user->name,
+                    'can' => [
+                        'edit' => Auth::user()->can('edit', $user)
+                    ]
                 ]),
+        
             'filters' => Request::only(['search']),
             'can' => [
                 // only this user with this email can create users+
