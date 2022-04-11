@@ -562,29 +562,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Auth/ConfirmPassword.vue": [
-		"./resources/js/Pages/Auth/ConfirmPassword.vue",
-		"resources_js_Pages_Auth_ConfirmPassword_vue"
-	],
-	"./Auth/ForgotPassword.vue": [
-		"./resources/js/Pages/Auth/ForgotPassword.vue",
-		"resources_js_Pages_Auth_ForgotPassword_vue"
-	],
 	"./Auth/Login.vue": [
 		"./resources/js/Pages/Auth/Login.vue",
 		"resources_js_Pages_Auth_Login_vue"
-	],
-	"./Auth/Register.vue": [
-		"./resources/js/Pages/Auth/Register.vue",
-		"resources_js_Pages_Auth_Register_vue"
-	],
-	"./Auth/ResetPassword.vue": [
-		"./resources/js/Pages/Auth/ResetPassword.vue",
-		"resources_js_Pages_Auth_ResetPassword_vue"
-	],
-	"./Auth/VerifyEmail.vue": [
-		"./resources/js/Pages/Auth/VerifyEmail.vue",
-		"resources_js_Pages_Auth_VerifyEmail_vue"
 	],
 	"./Home.vue": [
 		"./resources/js/Pages/Home.vue",
